@@ -110,10 +110,7 @@ function handleUserClick(event) {
         let liElement;
         for (let i = 0; i < allImgs.length; i++) {
           
-            do{
-             ;
-               }
-               while (leftImgIndex === allImgs[i] || centerImgIndex === allImgs[i] || rightImgIndex===allImgs[i]);
+
 
 
             liElement = document.createElement('li');
