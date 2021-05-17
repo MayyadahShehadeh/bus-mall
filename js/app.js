@@ -1,4 +1,4 @@
-'use srtict'
+'use srtict';
 
 let leftImgElement= document.getElementById('leftImg');
 let centerImgElement= document.getElementById('centerImg');
@@ -73,6 +73,8 @@ leftImgElement.src = allImgs[leftImgIndex].source;
 centerImgElement.src = allImgs[centerImgIndex].source;
 rightImgElement.src = allImgs[rightImgIndex].source;
 
+
+
 }
 renderThreeImgs();
 
@@ -99,25 +101,32 @@ function handleUserClick(event) {
 
         }
        
+      
 
         renderThreeImgs();
     } else {
         leftImgElement.removeEventListener('click', handleUserClick);
         rightImgElement.removeEventListener('click', handleUserClick);
 
-        // getting the element
-        let list = document.getElementById('result');
-        let liElement;
-        for (let i = 0; i < allImgs.length; i++) {
-          
-
-
-
-            liElement = document.createElement('li');
-            list.appendChild(liElement);
-            liElement.textContent = `${allImgs[i].name} has ${allImgs[i].clicks}  votes and was seen ${allImgs[i].views} times. `;
-
-        }
+      
+        
+            
+        
     }
 }
 console.log(allImgs);
+
+
+
+let list = document.getElementById('result');
+let button = document.getElementById('btn');
+button.addEventListener('click',showResult);
+
+function showResult(){
+    for (let i = 0; i < allImgs.length; i++) {
+
+        let liElement = document.createElement('li');
+        list.appendChild(liElement);
+        liElement.textContent = `${allImgs[i].name} has ${allImgs[i].clicks}  votes and was seen ${allImgs[i].views} times. `;
+    }
+}
