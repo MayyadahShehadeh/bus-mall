@@ -1,7 +1,44 @@
-html{
+
+body main{
     background-color:bisque;
+
+    border-style:groove;
+    border-color: rgba(110, 5, 40, 0.884);
+    border-width: 10px;
+    margin: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 img{
     display: inline;
     width: 300px;
+    height: 300px;
+    
 }
+h1{
+    background-color:bisque;
+
+text-align: center;
+border-style:groove;
+    border-color: rgba(110, 5, 40, 0.884);
+    border-width: 10px;
+    margin: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+#imgsDiv{
+    padding-left: 20%;
+    padding-right: 20%;
+    border: 30px;
+    border-color: black;
+}
+#btn{
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 45%;
+    margin-right: 45%;
+}
+

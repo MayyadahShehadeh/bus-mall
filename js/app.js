@@ -11,37 +11,30 @@ let rightImgIndex;
 let maxClicks=25;
 let userClicksNum=0;
 
+// global products names array:
+let imgsNames=['bag','banana','bathroom','boots','breakfast','bubblegum','chair','cthulhu','dog-duck','dragon','pen','pet-sweep','scissors','shark','sweep','tauntaun','unicorn','water-can','wine-glass'];
+
+//global objects array:
 let allImgs=[];
 
+// Shown imgs array:
+let ShownImgs=[];
+let clickedImgs=[];
+
 function Product(name, source){
-this.name=name;
-this.source=source;
-this.clicks=0;
-this.views=0;
-allImgs.push(this);
-
-
+    this.name=name;
+    this.source=source;
+    this.clicks=0;
+    this.shown=0;
+    allImgs.push(this);
+    
 }
 
-new Product('bag','imgs/bag.jpg');
-new Product('banana','imgs/banana.jpg');
-new Product('bathroom','imgs/bathroom.jpg');
-new Product('boots','imgs/boots.jpg');
-new Product('breakfast','imgs/breakfast.jpg');
-new Product('bubblegum','imgs/bubblegum.jpg');
-new Product('chair','imgs/chair.jpg');
-new Product('cthulhu','imgs/cthulhu.jpg');
-new Product('dog-duck','imgs/dog-duck.jpg');
-new Product('dragon','imgs/dragon.jpg');
-new Product('pen','imgs/pen.jpg');
-new Product('pet-sweep','imgs/pet-sweep.jpg');
-new Product('scissors','imgs/scissors.jpg');
-new Product('shark','imgs/shark.jpg');
-new Product('sweep','imgs/sweep.png');
-new Product('tauntaun','imgs/tauntaun.jpg');
-new Product('unicorn','imgs/unicorn.jpg');
-new Product('water-can','imgs/water-can.jpg');
-new Product('wine-glass','imgs/wine-glass.jpg');
+for (let i = 0; i < imgsNames.length; i++) {
+    
+    new Product(imgsNames[i],`imgs/${imgsNames[i]}.jpg`);
+}
+
 
 
 console.log(allImgs);
@@ -64,15 +57,15 @@ do{
  }
  while ( leftImgIndex===rightImgIndex || leftImgIndex=== centerImgIndex || rightImgIndex===centerImgIndex);
 
-console.log(leftImgIndex);
-console.log(centerImgIndex);
-console.log(rightImgIndex);
 
 
 leftImgElement.src = allImgs[leftImgIndex].source;
 centerImgElement.src = allImgs[centerImgIndex].source;
 rightImgElement.src = allImgs[rightImgIndex].source;
 
+allImgs[leftImgIndex].shown++;
+allImgs[centerImgIndex].shown++;
+allImgs[rightImgIndex].shown++;
 
 
 }
@@ -124,9 +117,12 @@ button.addEventListener('click',showResult);
 
 function showResult(){
     for (let i = 0; i < allImgs.length; i++) {
+        ShownImgs.push(allImgs[i].shown);
+        clickedImgs.push(allImgs[i].clicks);
+
 
         let liElement = document.createElement('li');
         list.appendChild(liElement);
-        liElement.textContent = `${allImgs[i].name} has ${allImgs[i].clicks}  votes and was seen ${allImgs[i].views} times. `;
+        liElement.textContent = `${allImgs[i].name} has ${allImgs[i].clicks}  votes and was seen ${allImgs[i].shown} times. `;
     }
 }
