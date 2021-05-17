@@ -17,9 +17,11 @@ let imgsNames=['bag','banana','bathroom','boots','breakfast','bubblegum','chair'
 //global objects array:
 let allImgs=[];
 
-// Shown imgs array:
+// Shown and clicked imgs arrays:
 let ShownImgs=[];
 let clickedImgs=[];
+
+let compareArray=[];
 
 function Product(name, source){
     this.name=name;
@@ -67,9 +69,29 @@ allImgs[leftImgIndex].shown++;
 allImgs[centerImgIndex].shown++;
 allImgs[rightImgIndex].shown++;
 
+leftImgIndex.alt=allImgs[leftImgIndex].name;
+centerImgIndex.alt=allImgs[centerImgIndex].name;
+rightImgIndex.alt=allImgs[rightImgIndex].name;
+
+compareArray.push(leftImgIndex.alt);
+compareArray.push(centerImgIndex.alt);
+compareArray.push(rightImgIndex.alt);
 
 }
 renderThreeImgs();
+
+
+function notSameImgs(){
+    while (compareArray.includes(allImgs[leftImgIndex]) || compareArray.includes(allImgs[centerImgIndex]) || compareArray.includes(allImgs[rightImgIndex]));{
+        leftImgIndex=randomImgsIndex();
+        centerImgIndex=randomImgsIndex();
+        rightImgIndex=randomImgsIndex();
+    }
+
+}
+notSameImgs();
+
+
 
 leftImgElement.addEventListener('click',handleUserClick);
 centerImgElement.addEventListener('click',handleUserClick);
@@ -125,4 +147,40 @@ function showResult(){
         list.appendChild(liElement);
         liElement.textContent = `${allImgs[i].name} has ${allImgs[i].clicks}  votes and was seen ${allImgs[i].shown} times. `;
     }
+    viewChart();
+}
+
+function viewChart(){
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: imgsNames,
+            datasets: [{
+                label: '# of Votes',
+                data: clickedImgs,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)'
+                  
+                ],
+                borderColor: [
+                   
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+
+            }, {
+                label: '# of shown',
+                backgroundColor:'lightblue',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                data: ShownImgs,
+
+            }]
+        },
+        options: {
+            
+        }
+    });
+
+
 }

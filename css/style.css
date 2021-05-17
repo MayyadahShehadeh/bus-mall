@@ -1,18 +1,17 @@
 
 body main{
     background-color:bisque;
-
     border-style:groove;
     border-color: rgba(110, 5, 40, 0.884);
     border-width: 10px;
-    margin: 50px;
+    margin: 25px;
     padding-top: 30px;
     padding-bottom: 30px;
 }
 img{
     display: inline;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 280px;
     
 }
 h1{
@@ -22,7 +21,7 @@ text-align: center;
 border-style:groove;
     border-color: rgba(110, 5, 40, 0.884);
     border-width: 10px;
-    margin: 50px;
+    margin: 25px;
     padding-top: 30px;
     padding-bottom: 30px;
 
@@ -42,3 +41,12 @@ border-style:groove;
     margin-right: 45%;
 }
 
+footer{
+    background-color:bisque;
+    border-style:groove;
+    border-color: rgba(110, 5, 40, 0.884);
+    border-width: 10px;
+    margin: 25px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
