@@ -28,7 +28,6 @@ function Product(name){
     this.clicks=0;
     this.shown=0;
     Product.allImgs.push(this);
-    addItems();
     
 }
 Product.allImgs=[];
@@ -66,14 +65,14 @@ return Math.floor(Math.random() * imgsNames.length);
 }
 //console.log(randomImgsIndex());
 
+compareArray=[leftImgIndex, centerImgIndex,rightImgIndex];
+
 function renderThreeImgs(){
 leftImgIndex=randomImgsIndex();
 centerImgIndex=randomImgsIndex();
 rightImgIndex=randomImgsIndex();
 
-compareArray[0]=leftImgIndex;
-compareArray[1]=centerImgIndex;
-compareArray[2]=rightImgIndex;
+
 
 do{
   leftImgIndex=randomImgsIndex();
@@ -82,6 +81,7 @@ do{
  }
  while ( leftImgIndex===rightImgIndex || leftImgIndex=== centerImgIndex || rightImgIndex===centerImgIndex ||compareArray.includes(leftImgIndex) || compareArray.includes(rightImgIndex) || compareArray.includes(centerImgIndex));
 
+ compareArray=[leftImgIndex, centerImgIndex,rightImgIndex];
 
 
 leftImgElement.src = Product.allImgs[leftImgIndex].source;
@@ -140,6 +140,7 @@ function handleUserClick(event) {
             
         
     }
+
 }
 console.log(Product.allImgs);
 
@@ -160,8 +161,11 @@ function showResult(){
         liElement.textContent = `${Product.allImgs[i].name} has ${Product.allImgs[i].clicks}  votes and was seen ${Product.allImgs[i].shown} times. `;
 
     }
+    addItems();
+    displayData();
 
     viewChart();
+    
 }
 
 function viewChart(){
@@ -198,4 +202,3 @@ function viewChart(){
 
 
 }
-displayData();
