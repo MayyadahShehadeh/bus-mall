@@ -28,7 +28,6 @@ function Product(name){
     this.clicks=0;
     this.shown=0;
     Product.allImgs.push(this);
-    addItems();
     
 }
 Product.allImgs=[];
@@ -73,17 +72,27 @@ leftImgIndex=randomImgsIndex();
 centerImgIndex=randomImgsIndex();
 rightImgIndex=randomImgsIndex();
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 282b7f5744e86b6ef2e974424fae04d2bacfe097
 
 do{
   leftImgIndex=randomImgsIndex();
   centerImgIndex=randomImgsIndex();
   rightImgIndex=randomImgsIndex();
  }
+<<<<<<< HEAD
+ while ( leftImgIndex===rightImgIndex || leftImgIndex=== centerImgIndex || rightImgIndex===centerImgIndex ||compareArray.includes(leftImgIndex) || compareArray.includes(rightImgIndex) || compareArray.includes(centerImgIndex));
+
+ compareArray=[leftImgIndex, centerImgIndex,rightImgIndex];
+=======
  while ( leftImgIndex===rightImgIndex || leftImgIndex=== centerImgIndex || rightImgIndex===centerImgIndex||
         compareArray.includes(leftImgIndex)||
         compareArray.includes(centerImgIndex) ||
         compareArray.includes(rightImgIndex)
     )
+>>>>>>> 282b7f5744e86b6ef2e974424fae04d2bacfe097
 
 
 leftImgElement.src = Product.allImgs[leftImgIndex].source;
@@ -145,6 +154,7 @@ function handleUserClick(event) {
             
         
     }
+
 }
 console.log(Product.allImgs);
 
@@ -165,8 +175,11 @@ function showResult(){
         liElement.textContent = `${Product.allImgs[i].name} has ${Product.allImgs[i].clicks}  votes and was seen ${Product.allImgs[i].shown} times. `;
 
     }
+    addItems();
+    displayData();
 
     viewChart();
+    
 }
 
 function viewChart(){
@@ -203,4 +216,3 @@ function viewChart(){
 
 
 }
-displayData();
