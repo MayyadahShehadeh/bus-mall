@@ -73,9 +73,6 @@ leftImgIndex=randomImgsIndex();
 centerImgIndex=randomImgsIndex();
 rightImgIndex=randomImgsIndex();
 
-compareArray[0]=leftImgIndex;
-compareArray[1]=centerImgIndex;
-compareArray[2]=rightImgIndex;
 
 do{
   leftImgIndex=randomImgsIndex();
