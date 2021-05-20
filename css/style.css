@@ -3,7 +3,7 @@ body main{
     background-color:bisque;
     border-style:groove;
     border-color: rgba(110, 5, 40, 0.884);
-    border-width: 10px;
+    border-width: 2px;
     margin: 25px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -20,17 +20,16 @@ h1{
 text-align: center;
 border-style:groove;
     border-color: rgba(110, 5, 40, 0.884);
-    border-width: 10px;
+    border-width: 2px;
     margin: 25px;
     padding-top: 30px;
     padding-bottom: 30px;
 
 }
 #imgsDiv{
-    padding-left: 20%;
-    padding-right: 20%;
-    border: 30px;
-    border-color: black;
+    position: relative;
+
+left: 10px;
 }
 #btn{
     padding-left: 30px;
@@ -45,7 +44,7 @@ footer{
     background-color:bisque;
     border-style:groove;
     border-color: rgba(110, 5, 40, 0.884);
-    border-width: 10px;
+    border-width: 2px;
     margin: 25px;
     padding-top: 30px;
     padding-bottom: 30px;
