@@ -47,6 +47,8 @@ return Math.floor(Math.random() * allImgs.length);
 }
 //console.log(randomImgsIndex());
 
+compareArray=[leftImgIndex, centerImgIndex,rightImgIndex];
+
 function renderThreeImgs(){
 leftImgIndex=randomImgsIndex();
 centerImgIndex=randomImgsIndex();
@@ -57,7 +59,11 @@ do{
   centerImgIndex=randomImgsIndex();
   rightImgIndex=randomImgsIndex();
  }
- while ( leftImgIndex===rightImgIndex || leftImgIndex=== centerImgIndex || rightImgIndex===centerImgIndex);
+ while ( leftImgIndex===rightImgIndex || leftImgIndex=== centerImgIndex || rightImgIndex===centerImgIndex||
+        compareArray.includes(leftImgIndex)||
+        compareArray.includes(centerImgIndex) ||
+        compareArray.includes(rightImgIndex)
+    )
 
 
 
@@ -81,15 +87,7 @@ compareArray.push(rightImgIndex.alt);
 renderThreeImgs();
 
 
-function notSameImgs(){
-    while (compareArray.includes(allImgs[leftImgIndex]) || compareArray.includes(allImgs[centerImgIndex]) || compareArray.includes(allImgs[rightImgIndex]));{
-        leftImgIndex=randomImgsIndex();
-        centerImgIndex=randomImgsIndex();
-        rightImgIndex=randomImgsIndex();
-    }
 
-}
-notSameImgs();
 
 
 
